@@ -5,15 +5,15 @@
             <ion-list>
                 <label class="item item-input">
                     <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
+                    <input type="text" ng-model="email" placeholder="">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="">
+                    <input type="password" ng-model="password" placeholder="">
                 </label>
             </ion-list>
             <div class="spacer" style="width: 300px; height: 60px;"></div>
-            <button id="login-button5" class="button button-stable  button-block">Log in</button>
+            <button id="login-button5" class="button button-stable  button-block" ng-click="login">Log in</button>
         </form>
     </ion-content>
 </ion-view>

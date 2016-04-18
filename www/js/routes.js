@@ -7,10 +7,7 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-  
-
-      .state('tabsController.home', {
+     .state('tabsController.home', {
     url: '/home',
     views: {
       'tab1': {
@@ -46,11 +43,6 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-  .state('login', {
-    url: '/page5',
-    templateUrl: 'templates/login.html',
-    controller: 'loginCtrl'
-  })
 
   .state('settings', {
     url: '/settings',
@@ -63,8 +55,13 @@ angular.module('app.routes', [])
     templateUrl: 'templates/clockReach.html',
     controller: 'clockReachCtrl'
   })
-
-$urlRouterProvider.otherwise('/page1/home')
+       .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+   })
+ 
+$urlRouterProvider.otherwise('/login')
 
   
 

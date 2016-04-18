@@ -1,26 +1,49 @@
-angular.module('app.controllers', [])
+$app = angular.module('app.controllers', []);
      
-.controller('homeCtrl', function($scope) {
+$app.controller('homeCtrl', function($scope) {
 
-})
+});
    
-.controller('exercisesCtrl', function($scope) {
+$app.controller('exercisesCtrl', function($scope) {
 
-})
+});
    
-.controller('perfomanceCtrl', function($scope) {
+$app.controller('perfomanceCtrl', function($scope) {
 
-})
+});
       
-.controller('loginCtrl', function($scope) {
+$app.controller('loginCtrl',  ["$scope", "$firebaseAuth",
+   function($scope, $firebaseAuth) {
+   var firebase_url = $app.constant('firebase-url');
+   var ref = new Firebase(firebase_url);
+   $scope.auth = $firebaseAuth(ref);
 
-})
+   $scope.auth.$onAuth(function(authData) {
+       $scope.authData = authData;
+   });
    
-.controller('settingsCtrl', function($scope) {
-
-})
+   $scope.login = function() {
+      $scope.authData = null;
+      $scope.error = null;
+       
+      $scope.auth.$authWithPassword({
+			email: $scope.email,
+			password: $scope.password
+		
+		}).then(function(authData) {
+        $scope.authData = authData;
+      }).catch(function(error) {
+        $scope.error = error;
+      });
+    };
+ }
+]);
    
-.controller('clockReachCtrl', function($scope) {
+$app.controller('settingsCtrl', function($scope) {
 
-})
+});
+   
+$app.controller('clockReachCtrl', function($scope) {
+
+});
  
